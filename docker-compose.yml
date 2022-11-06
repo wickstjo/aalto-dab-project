@@ -1,0 +1,86 @@
+version: '3.8'
+services:
+
+    # SHARED POSTGRE DATABASE
+    postgres_db:
+        image: postgres:14.1-alpine
+        restart: always
+        environment:
+            POSTGRES_USER: username
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: database
+        volumes:
+            - ./postgres/create_table.sql:/docker-entrypoint-initdb.d/create_tablecl.sql
+        ports:
+            - "5432:5432"
+
+    # EXPRESS BACKEND
+    express_backend:
+        image: node:latest
+        restart: always
+        environment:
+            API_PORT: 4000
+        ports:
+            - 4000:4000
+        depends_on:
+            - postgres_db
+        volumes:
+            - ./express_back/:/express_back
+        working_dir: /express_back
+        command: bash -c "npm install && node index.js"
+
+    # EXPRESS FRONTEND
+    express_frontend:
+        build: ./express_front/
+        restart: always
+        ports:
+            - 3000:3000
+        depends_on:
+            - express_backend
+        command: "python main.py"
+
+    # FLASK BACKEND
+    flask_backend:
+        build: ./flask_back/
+        restart: always
+        environment:
+            API_PORT: 4001
+        ports:
+            - 4001:4001
+        depends_on:
+            - postgres_db
+        command: "python main.py"
+
+    # FLASK FRONTEND
+    flask_frontend:
+        build: ./flask_front/
+        restart: always
+        ports:
+            - 3001:3000
+        depends_on:
+            - flask_backend
+        command: "python main.py"
+    
+    # FASTAPI BACKEND
+    fast_backend:
+        build: ./fast_back/
+        restart: always
+        environment:
+            API_PORT: 4002
+        ports:
+            - 4002:4002
+        depends_on:
+            - postgres_db
+        command: "python main.py"
+
+    # FAST API FRONTEND
+    fast_frontend:
+        build: ./fast_front/
+        restart: always
+        ports:
+            - 3002:3000
+        depends_on:
+            - fast_backend
+        command: "python main.py"
+
+# clear && docker compose down && docker compose up --remove-orphans --force-recreate --build

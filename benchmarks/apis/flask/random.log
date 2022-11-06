@@ -1,0 +1,33 @@
+          /\      |‾‾| /‾‾/   /‾‾/   
+     /\  /  \     |  |/  /   /  /    
+    /  \/    \    |     (   /   ‾‾\  
+   /          \   |  |\  \ |  (‾)  | 
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: benchmark.js
+     output: apis/flask/random.log
+
+  scenarios: (100.00%) 1 scenario, 30 max VUs, 2m30s max duration (incl. graceful stop):
+           * default: 30 looping VUs for 2m0s (gracefulStop: 30s)
+     
+           
+running (2m00.0s), 00/30 VUs, 100346 complete and 0 interrupted iterations
+default ✓ [======================================] 30 VUs  2m0s
+
+     data_received..................: 27 MB  229 kB/s
+     data_sent......................: 8.6 MB 72 kB/s
+     http_req_blocked...............: min=57.69µs max=10.48ms  avg=112.83µs med=91.57µs  p(95)=144.36µs p(99)=418.71µs
+     http_req_connecting............: min=35.01µs max=6.77ms   avg=77.49µs  med=58.39µs  p(95)=95.52µs  p(99)=346.85µs
+     http_req_duration..............: min=1.48ms  max=232.37ms avg=35.71ms  med=33.64ms  p(95)=60.26ms  p(99)=80.22ms 
+       { expected_response:true }...: min=1.48ms  max=232.37ms avg=35.77ms  med=33.69ms  p(95)=60.29ms  p(99)=80.29ms 
+     http_req_failed................: 0.55%  ✓ 556        ✗ 99790
+     http_req_receiving.............: min=0s      max=17.66ms  avg=311.26µs med=110.24µs p(95)=1.03ms   p(99)=2.25ms  
+     http_req_sending...............: min=8.07µs  max=10.11ms  avg=22.36µs  med=20.16µs  p(95)=29.12µs  p(99)=40.1µs  
+     http_req_tls_handshaking.......: min=0s      max=0s       avg=0s       med=0s       p(95)=0s       p(99)=0s      
+     http_req_waiting...............: min=1.4ms   max=232.21ms avg=35.38ms  med=33.31ms  p(95)=59.91ms  p(99)=79.65ms 
+     http_reqs......................: 100346 836.093651/s
+     iteration_duration.............: min=1.62ms  max=232.56ms avg=35.87ms  med=33.78ms  p(95)=60.42ms  p(99)=80.48ms 
+     iterations.....................: 100346 836.093651/s
+     vus............................: 30     min=30       max=30 
+     vus_max........................: 30     min=30       max=30 

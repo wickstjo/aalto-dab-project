@@ -1,0 +1,1 @@
+clear && k6 run benchmark.js

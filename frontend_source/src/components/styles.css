@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+  
+#wrapper {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#container, #added {
+    width: 400px;
+    background: rgba(255, 255, 255, 0.082);
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+#added {
+    margin-top: 10px;
+    text-align: center;
+}
+
+a:link, a:visited {
+    color: rgba(166, 255, 144, 0.76);
+    text-decoration: none;
+    transition: 0.2s;
+    padding: 5px;
+}
+
+a:hover {
+    color: rgba(166, 255, 144, 0.925);
+}
+
+input {
+    outline: none;
+    border: none;
+    padding: 8px;
+    margin: 0px;
+    flex: 1;
+}
+
+#buttons {
+    display: flex;
+    margin-top: 6px;
+}
+
+#buttons input {
+    cursor: pointer;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.863);
+}
+
+#buttons input:first-child {
+    margin-right: 3px;
+}
+
+#buttons input:last-child {
+    margin-left: 3px;
+}

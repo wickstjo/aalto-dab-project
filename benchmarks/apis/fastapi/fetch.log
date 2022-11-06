@@ -1,0 +1,33 @@
+          /\      |‾‾| /‾‾/   /‾‾/   
+     /\  /  \     |  |/  /   /  /    
+    /  \/    \    |     (   /   ‾‾\  
+   /          \   |  |\  \ |  (‾)  | 
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: benchmark.js
+     output: apis/fastapi/fetch.log
+
+  scenarios: (100.00%) 1 scenario, 30 max VUs, 2m30s max duration (incl. graceful stop):
+           * default: 30 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+running (2m00.0s), 00/30 VUs, 132024 complete and 0 interrupted iterations
+default ✓ [======================================] 30 VUs  2m0s
+
+     data_received..................: 25 MB  209 kB/s
+     data_sent......................: 21 MB  174 kB/s
+     http_req_blocked...............: min=815ns    max=7.79ms   avg=1.8µs   med=1.47µs  p(95)=2.2µs    p(99)=3.18µs  
+     http_req_connecting............: min=0s       max=691.27µs avg=84ns    med=0s      p(95)=0s       p(99)=0s      
+     http_req_duration..............: min=1ms      max=87.94ms  avg=27.2ms  med=25.77ms p(95)=43.25ms  p(99)=52.6ms  
+       { expected_response:true }...: min=1ms      max=87.94ms  avg=27.2ms  med=25.77ms p(95)=43.25ms  p(99)=52.6ms  
+     http_req_failed................: 0.00%  ✓ 0          ✗ 132024
+     http_req_receiving.............: min=10.45µs  max=13.55ms  avg=73.9µs  med=53.52µs p(95)=171.62µs p(99)=291.21µs
+     http_req_sending...............: min=4.91µs   max=3.16ms   avg=9.24µs  med=8.52µs  p(95)=13.09µs  p(99)=15.98µs 
+     http_req_tls_handshaking.......: min=0s       max=0s       avg=0s      med=0s      p(95)=0s       p(99)=0s      
+     http_req_waiting...............: min=943.85µs max=87.81ms  avg=27.12ms med=25.69ms p(95)=43.17ms  p(99)=52.52ms 
+     http_reqs......................: 132024 1100.05637/s
+     iteration_duration.............: min=1.05ms   max=88ms     avg=27.26ms med=25.83ms p(95)=43.31ms  p(99)=52.65ms 
+     iterations.....................: 132024 1100.05637/s
+     vus............................: 30     min=30       max=30  
+     vus_max........................: 30     min=30       max=30  

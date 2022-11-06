@@ -1,0 +1,33 @@
+          /\      |‾‾| /‾‾/   /‾‾/   
+     /\  /  \     |  |/  /   /  /    
+    /  \/    \    |     (   /   ‾‾\  
+   /          \   |  |\  \ |  (‾)  | 
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: benchmark.js
+     output: pages/flask/random.log
+
+  scenarios: (100.00%) 1 scenario, 30 max VUs, 2m30s max duration (incl. graceful stop):
+           * default: 30 looping VUs for 2m0s (gracefulStop: 30s)
+
+
+running (2m00.0s), 00/30 VUs, 619023 complete and 0 interrupted iterations
+default ✓ [======================================] 30 VUs  2m0s
+
+     data_received..................: 1.4 GB 12 MB/s
+     data_sent......................: 50 MB  413 kB/s
+     http_req_blocked...............: min=713ns    max=2.86ms  avg=1.2µs   med=1.08µs  p(95)=1.63µs  p(99)=2.59µs 
+     http_req_connecting............: min=0s       max=2.81ms  avg=9ns     med=0s      p(95)=0s      p(99)=0s     
+     http_req_duration..............: min=314.23µs max=39.08ms avg=5.78ms  med=5.29ms  p(95)=8.58ms  p(99)=10.91ms
+       { expected_response:true }...: min=314.23µs max=39.08ms avg=5.78ms  med=5.29ms  p(95)=8.58ms  p(99)=10.91ms
+     http_req_failed................: 0.00%  ✓ 0          ✗ 619023
+     http_req_receiving.............: min=11.47µs  max=24.36ms avg=23.61µs med=22.38µs p(95)=30.49µs p(99)=39.9µs 
+     http_req_sending...............: min=3.38µs   max=4.12ms  avg=5.33µs  med=4.84µs  p(95)=7.36µs  p(99)=9.88µs 
+     http_req_tls_handshaking.......: min=0s       max=0s      avg=0s      med=0s      p(95)=0s      p(99)=0s     
+     http_req_waiting...............: min=293.14µs max=39.05ms avg=5.75ms  med=5.27ms  p(95)=8.55ms  p(99)=10.88ms
+     http_reqs......................: 619023 5158.26454/s
+     iteration_duration.............: min=346.99µs max=39.12ms avg=5.81ms  med=5.32ms  p(95)=8.61ms  p(99)=10.94ms
+     iterations.....................: 619023 5158.26454/s
+     vus............................: 30     min=30       max=30  
+     vus_max........................: 30     min=30       max=30  
